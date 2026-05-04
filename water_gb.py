@@ -21,10 +21,13 @@ test_processed_data = fill_missing_with_mean(test_data)
 
 import mlflow.sklearn
 mlflow.set_experiment("water_gb")
-
+mlflow.set_tracking_uri("https://dagshub.com/email4prasanth/mlflow_exp_dagshub.mlflow")
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
+import dagshub
+dagshub.init(repo_owner='email4prasanth', repo_name='mlflow_exp_dagshub', mlflow=True)
+
 
 with mlflow.start_run():
     # Create a model 
